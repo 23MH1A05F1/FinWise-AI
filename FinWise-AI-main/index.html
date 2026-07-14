@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinWise AI - Corporate Banking Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <span class="brand-logo">💎</span>
+                <span class="brand-name">FinWise <span class="accent">Bank</span></span>
+            </div>
+            <div class="nav-status">
+                <span class="status-indicator"></span>
+                <span class="status-text">AI Core Connected</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="stats-strip">
+            <div class="stat-item">
+                <span class="stat-label">Maximum Loan Cap</span>
+                <span class="stat-value">₹90,00,000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Base Lending Rate</span>
+                <span class="stat-value">10.5% p.a.</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Ideal DTI Threshold</span>
+                <span class="stat-value">&lt; 45%</span>
+            </div>
+        </div>
+
+        <main class="grid-layout">
+            <section class="glass-card main-panel">
+                <div class="panel-header">
+                    <h2>Credit Analysis Terminal</h2>
+                    <p>Input applicant metrics to run cross-verification models.</p>
+                </div>
+                
+                <form id="loanForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="income">Verified Monthly Income (₹)</label>
+                            <input type="number" id="income" required placeholder="e.g. 45000">
+                        </div>
+                        <div class="input-group">
+                            <label for="creditScore">Bureau Credit Score (CIBIL)</label>
+                            <input type="number" id="creditScore" required placeholder="e.g. 730">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="existingEMI">Declared Active EMIs (₹)</label>
+                            <input type="number" id="existingEMI" value="0" placeholder="e.g. 0">
+                        </div>
+                        <div class="input-group">
+                            <label for="loanAmount">Requested Capital Amount (₹)</label>
+                            <input type="number" id="loanAmount" required placeholder="e.g. 500000">
+                        </div>
+                    </div>
+
+                    <div class="slider-section">
+                        <h3>Adjust Loan Parameters (Optional)</h3>
+                        
+                        <div class="input-group">
+                            <div class="slider-header">
+                                <label for="interestSlider">Interest Rate (p.a.)</label>
+                                <span id="interestVal">10.5%</span>
+                            </div>
+                            <input type="range" id="interestSlider" min="5" max="20" step="0.1" value="10.5" class="banking-slider">
+                        </div>
+
+                        <div class="input-group">
+                            <div class="slider-header">
+                                <label for="tenureSlider">Loan Tenure (Months)</label>
+                                <span id="tenureVal">60 Months</span>
+                            </div>
+                            <input type="range" id="tenureSlider" min="12" max="84" step="12" value="60" class="banking-slider">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="checkEligibilityBtn">Execute Risk Evaluation</button>
+                </form>
+            </section>
+
+            <section class="glass-card side-panel">
+                <div class="panel-header">
+                    <h2>System Analytics & AI Insights</h2>
+                    <p>Real-time underwriting analysis generated via automated evaluation models.</p>
+                </div>
+                
+                <div id="outputDisplay">
+                    <div class="result-block status-block">
+                        <h3>Underwriting Decision</h3>
+                        <p id="eligibilityResult" class="placeholder-text">Awaiting terminal data execution...</p>
+                    </div>
+                    
+                    <div class="result-block emi-block">
+                        <h3>Amortization Estimate (Monthly EMI)</h3>
+                        <p id="emiResult">₹0.00</p>
+                    </div>
+                    
+                    <div class="result-block tips-block">
+                        <h3>Automated Financial Advisory Tips</h3>
+                        <p id="aiTips" class="placeholder-text">Underwriting roadmap logs will generate here.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="ai.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
